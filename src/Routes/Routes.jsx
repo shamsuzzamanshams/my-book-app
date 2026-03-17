@@ -8,7 +8,7 @@ import bookDetails from '../Pages/bookDetails/bookDetails';
 
 export const router = createBrowserRouter([
 	{
-		path: "/",
+		path: '/',
 		Component: Root,
 		errorElement: <ErrorPage></ErrorPage>,
 		children: [
