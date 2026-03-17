@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoreDb } from '../../Utilitis/addToDb';
 
 const bookDetails = () => {
 	const { id } = useParams();
@@ -10,13 +11,19 @@ const bookDetails = () => {
 
 	const { bookName, image } = singleBook;
 
+
+	const handleMarkAsRead = id =>{
+		addToStoreDb(id);
+	}
+
+
 	return (
 		<div className='w-2/3 mx-auto'>
 			<img className='w-48' src={image} alt="" />
 			<h5>{bookName}</h5>
 
-			<button className="btn btn-info m-2">Info</button>
-			<button className="btn btn-success m-2">Success</button>
+			<button onClick={() => handleMarkAsRead(id)} className="btn btn-info m-2">Mark as Read</button>
+			<button className="btn btn-success m-2">Add to WishList</button>
 		</div>
 	);
 };
